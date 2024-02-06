@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
   const root = document.getElementById("root");
 
+
   let noCount = 0;
   let yesPressed = false;
 
@@ -33,6 +34,7 @@ document.addEventListener("DOMContentLoaded", function () {
   };
 
   const setYesPressed = (value) => {
+    alert("Congratulations You are in love")
     yesPressed = value;
     render();
   };
@@ -45,13 +47,13 @@ document.addEventListener("DOMContentLoaded", function () {
         ${
           yesPressed
             ? `
-            <img src="https://media.tenor.com/gUiu1zyxfzYAAAAi/bear-kiss-bear-kisses.gif" />
+            <img src="done.gif" />
             <div class="text-4xl font-bold my-4">Ok yay!!!</div>
           `
             : `
-            <img class="h-[200px]" src="gif.gif">
+            <img class="h-[200px]" src="image.gif" width=250rem height=250rem>
             <h1 class="text-4xl my-4">Will you be my Valentine?</h1>
-            <div>
+            <div id="row">
               <button id="yesButton" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mr-4" style="font-size: ${yesButtonSize}px">
                 Yes
               </button>
@@ -63,6 +65,11 @@ document.addEventListener("DOMContentLoaded", function () {
         }
       </div>
     `;
+    const row=document.getElementById("row")
+    row.style.display="flex";
+    row.style.flexDirection="column";
+    row.style.justifyContent="center";
+    row.style.alignItems="center"
     document.getElementById("yesButton").addEventListener("click", () => setYesPressed(true));
     document.getElementById("noButton").addEventListener("click", handleNoClick);
   };

@@ -1,7 +1,8 @@
 body {
   padding: 2em;
   margin: 0;
-  background-image: url("image.jpg");
+  color: #FFFFE4;
+  background-image: url("gif.gif");
   font-family: "abcd";
   background-position: center;
   background-repeat: no-repeat;
@@ -9,19 +10,27 @@ body {
   overflow: hidden;
   max-width: 100%;
   background-attachment: fixed;
+  overflow-y: auto;
 }
 @media screen and (max-width: 600px) {
   body {
-    background-size: auto 100%;    overflow-y: auto;
+    background-size: auto 100%;
   }
 }
+
 @font-face {
   font-family:"abcd";
   src: url("valentine.otf") format("opentype");}
 .flex {
     display: flex;
   }
-  
+  .rounded {
+    border-radius: .25em!important;
+}
+  .mr-4, .mx-4 {
+    margin: 5px !important;
+    border-radius: .25em !important;
+}
   .flex-col {
     flex-direction: column;
   }
