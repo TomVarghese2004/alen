@@ -34,8 +34,9 @@ document.addEventListener("DOMContentLoaded", function () {
   };
 
   const setYesPressed = (value) => {
-    alert("Congratulations You are in love")
+    //alert("Congratulations You are in love")
     yesPressed = value;
+    openModal()
     render();
   };
 
@@ -44,13 +45,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
     root.innerHTML = `
       <div class="flex flex-col items-center justify-center h-screen -mt-16">
-        ${
-          yesPressed
-            ? `
+        ${yesPressed
+        ? `
             <img src="done.gif" />
             <div class="text-4xl font-bold my-4">Ok yay!!!</div>
           `
-            : `
+        : `
             <img class="h-[200px]" src="image.gif" width=250rem height=250rem>
             <h1 class="text-4xl my-4">Will you be my Valentine?</h1>
             <div id="row">
@@ -62,17 +62,30 @@ document.addEventListener("DOMContentLoaded", function () {
               </button>
             </div>
           `
-        }
+      }
       </div>
     `;
-    const row=document.getElementById("row")
-    row.style.display="flex";
-    row.style.flexDirection="column";
-    row.style.justifyContent="center";
-    row.style.alignItems="center"
+    const row = document.getElementById("row")
+    row.style.display = "flex";
+    row.style.flexDirection = "column";
+    row.style.justifyContent = "center";
+    row.style.alignItems = "center"
     document.getElementById("yesButton").addEventListener("click", () => setYesPressed(true));
     document.getElementById("noButton").addEventListener("click", handleNoClick);
   };
 
   render();
-});
+}
+);
+var modal = document.getElementById('customAlert');
+function openModal() {
+  modal.style.display = 'block';
+}
+function closeModal() {
+  modal.style.display = 'none';
+}
+function changeHeading(newHeading) {
+  var heading = document.querySelector('.modal-heading');
+  heading.textContent = newHeading;
+}
+changeHeading("HELLO DEAR");
